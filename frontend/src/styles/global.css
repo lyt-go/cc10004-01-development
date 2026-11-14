@@ -35,3 +35,14 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .error-text { color: #b42318; }
 .status-legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 10px; font-size: 12px; color: var(--muted); }
 .legend-item { background: #eef2f7; border-radius: 999px; padding: 2px 10px; }
+.panel { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+.panel-title { margin: 0 0 8px; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.result-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+.result-card { flex: 1; min-width: 260px; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+.result-card.pass { border-color: #12b76a; }
+.result-card.fail { border-color: #f04438; }
+.badge { border-radius: 999px; padding: 2px 10px; font-size: 12px; }
+.badge.pass { background: #dcfae6; color: #067647; }
+.badge.fail { background: #fee4e2; color: #b42318; }
+.filter-item select, .filter-item input { border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; font-size: 13px; }
+.row-actions input[type="date"] { border: 1px solid var(--border); border-radius: 6px; padding: 2px 4px; font-size: 12px; }

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { downloadEntries, listEntries, moduleMeta, runAction as applyAction } from '@/api/local-service'
+import { invalidateChannelRehearsals } from '@/api/rehearsal-service'
 import type { EntryRow } from '@/data/types'
 
 const meta = moduleMeta('channel')
@@ -68,6 +69,13 @@ export default function ChannelView() {
     if (!result.ok) {
       setErrorMessage(result.message)
       return
+    }
+    if (action === '停用渠道') {
+      // 以已生效渠道为准：渠道停用后，其占用中的预演全部失效，预算让路
+      const invalidated = invalidateChannelRehearsals(String(row['渠道编号']), '渠道已停用')
+      if (invalidated > 0) {
+        setErrorMessage(`渠道已停用，${invalidated} 笔占用中的预演随之失效，占用预算已让路`)
+      }
     }
     reload()
   }
